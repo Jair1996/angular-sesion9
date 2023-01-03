@@ -1,10 +1,16 @@
 <main>
   <div class="mt-10 w-80 mx-auto border-solid border-gray-400 border rounded">
     <div class="mb-3 p-3">
-      <input class="mr-3" type="checkbox" id="txtIsACtive" />
-      <label for="txtIsACtive">Is active</label>
+      <input
+        [(ngModel)]="isActivate"
+        name="isAcitvate"
+        class="mr-3 cursor-pointer"
+        type="checkbox"
+        id="txtIsACtive"
+      />
+      <label for="txtIsACtive" class="cursor-pointer">Is active</label>
     </div>
-    <section>
+    <section *ngIf="isActivate; else message">
       <div class="bg-slate-300">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png"
@@ -20,8 +26,10 @@
         </p>
       </div>
     </section>
-    <section class="px-6 bg-white text-slate-500">
-      <p>Activa el checkbox para mostrar el contenido</p>
-    </section>
+    <ng-template #message>
+      <section class="p-6 bg-white text-slate-500">
+        <p>Activa el checkbox para mostrar el contenido</p>
+      </section>
+    </ng-template>
   </div>
 </main>
